@@ -28,7 +28,7 @@
                                             <th>Contact Details</th>
                                             <th>Email ID</th>
                                             <th>Address</th>
-                                            <th>Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     
@@ -45,7 +45,7 @@
                                                 District : {{ pat.get_address.addressDistrict == null ?'':pat.get_address.addressDistrict+',' }} <br>
                                                 {{ pat.get_address.addressState+' ,PIN-'   }} {{ pat.get_address.addressPinCode }}
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 <router-link :to="'/edit-patient/'+pat.patientGenId" class="btn btn-success btn-circle"><i class="fas fa-edit"></i></router-link>
                                                 <button class="btn btn-danger btn-circle ml-1"  @click="deletePat(pat.patientGenId)"><i class="fas fa-trash"></i></button>
                                             </td>

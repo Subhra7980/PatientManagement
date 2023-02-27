@@ -26,7 +26,7 @@
                                             <th>User Gen ID</th>
                                             <th>Name</th>
                                             <th>Email ID</th>
-                                            <th>Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     
@@ -36,7 +36,7 @@
                                             <td>{{usr.userGenId }}</td>
                                             <td>{{usr.name}}</td>
                                             <td>{{usr.email}}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <router-link :to="'/edit-user/'+usr.userGenId" class="btn btn-success btn-circle"><i class="fas fa-edit"></i></router-link>
                                                 <button class="btn btn-danger btn-circle ml-1"  @click="deleteUser(usr.userGenId)"><i class="fas fa-trash"></i></button>
                                             </td>
