@@ -105,11 +105,6 @@ class PatientController extends Controller
         }
     }
     
-    public function getPatientCount()
-    {
-        return Patient::count();
-    }
-
     public function deletePatient($patId)
     {
         DB::beginTransaction();
@@ -125,6 +120,12 @@ class PatientController extends Controller
             return array('success' => false, 'msg'=>$e->errorInfo[2]);
         }
     }
+
+    public function getPatientCount()
+    {
+        return Patient::count();
+    }
+
     
 }
 

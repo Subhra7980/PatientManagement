@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
         Route::get('/get-user-by-id/{userId}'      , [UserController::class, 'getUserById']);
         Route::post('/update-user-data/{userId}'   , [UserController::class, 'updateUser']);
         Route::post('/delete-user/{userId}'        , [UserController::class, 'deleteUser']);
-
+        Route::get('/get-users-count'              , [UserController::class, 'getUsersCount']);
     #LOGOUT API   
         Route::post('/logout'                  , [LoginController::class  , 'logout']); 
 });

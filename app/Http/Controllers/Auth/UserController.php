@@ -96,4 +96,10 @@ class UserController extends Controller
         }
 
     }
+
+    public function getUsersCount()
+    {
+        return User::count();
+    }
+
 }
