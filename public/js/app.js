@@ -19995,28 +19995,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     saveUser: function saveUser() {
       var _this = this;
-      (0,_src_Api_js__WEBPACK_IMPORTED_MODULE_3__["default"])().post('/save-user-data/', this.userForm).then(function (response) {
-        if (response.data['success'] == true) {
-          _this.$swal({
-            icon: 'success',
-            title: ' ' + response.data['msg'],
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 4000
-          });
-        }
-        if (response.data['success'] == false) {
-          _this.$swal({
-            icon: 'error',
-            title: ' ' + response.data['msg'],
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 4000
-          });
-        }
-      });
+      if (this.userForm.userGenId != null) {
+        (0,_src_Api_js__WEBPACK_IMPORTED_MODULE_3__["default"])().post('/update-user-data/' + this.userForm.userGenId, this.userForm).then(function (response) {
+          if (response.data['success'] == true) {
+            _this.$swal({
+              icon: 'success',
+              title: ' ' + response.data['msg'],
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 4000
+            });
+          }
+          if (response.data['success'] == false) {
+            _this.$swal({
+              icon: 'error',
+              title: ' ' + response.data['msg'],
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 4000
+            });
+          }
+        });
+      } else {
+        (0,_src_Api_js__WEBPACK_IMPORTED_MODULE_3__["default"])().post('/save-user-data/', this.userForm).then(function (response) {
+          if (response.data['success'] == true) {
+            _this.$swal({
+              icon: 'success',
+              title: ' ' + response.data['msg'],
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 4000
+            });
+          }
+          if (response.data['success'] == false) {
+            _this.$swal({
+              icon: 'error',
+              title: ' ' + response.data['msg'],
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 4000
+            });
+          }
+        });
+      }
     },
     getPatById: function getPatById() {
       var _this2 = this;
@@ -20211,7 +20236,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteUser: function deleteUser(usrId) {
       var _this2 = this;
-      (0,_src_Api_js__WEBPACK_IMPORTED_MODULE_3__["default"])().post('/delete-usr/' + usrId).then(function (response) {
+      (0,_src_Api_js__WEBPACK_IMPORTED_MODULE_3__["default"])().post('/delete-user/' + usrId).then(function (response) {
         if (response.data['success'] == true) {
           _this2.$swal({
             icon: 'success',

@@ -89,7 +89,7 @@
 
         deleteUser(usrId)
         {
-            Api().post('/delete-usr/'+usrId)
+            Api().post('/delete-user/'+usrId)
                  .then((response) => {
                     if(response.data['success'] == true)
                     {

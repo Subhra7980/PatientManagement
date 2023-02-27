@@ -76,7 +76,24 @@ class UserController extends Controller
             DB::rollBack();
             return array ('success' => false, 'msg'=>$e->errorInfo[2]);
         }
-        
+    }
+
+    public function deleteUser($userId)
+    {
+        DB::beginTransaction();
     
+        try
+        {
+            User::where('userGenId',$userId)->delete();
+            DB::commit();
+            return array('success' => true, 'msg'=>['User deleted']);
+            
+          
+        }catch(\Exception $e)
+        {
+            DB::rollBack();
+            return array ('success' => false, 'msg'=>$e->errorInfo[2]);
+        }
+
     }
 }

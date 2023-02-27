@@ -32,6 +32,8 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
         Route::get('/view-all-user-data'           , [UserController::class, 'getUserList']);
         Route::get('/get-user-by-id/{userId}'      , [UserController::class, 'getUserById']);
         Route::post('/update-user-data/{userId}'   , [UserController::class, 'updateUser']);
+        Route::post('/delete-user/{userId}'        , [UserController::class, 'deleteUser']);
+
     #LOGOUT API   
         Route::post('/logout'                  , [LoginController::class  , 'logout']); 
 });
