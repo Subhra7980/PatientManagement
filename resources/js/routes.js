@@ -6,6 +6,8 @@ import AllPatients   from './components/allPatients.vue';
 import AddPatient    from './components/addPatient.vue';
 import AddUser       from './components/auth/addUser.vue';
 import ViewUsers     from './components/auth/viewUsers.vue';
+import AddDoctor     from './components/addDoctor.vue';
+import AllDoctors    from './components/allDoctors.vue';
 
 const routes = [
     {
@@ -55,6 +57,23 @@ const routes = [
         path     : '/view-user',
         component: ViewUsers,
         name     : "view-user"
+    },
+
+    {
+        path     : '/add-doctor',
+        component: AddDoctor,
+        name     : "add-doctor"
+    },
+    {
+        path     : '/all-doctors',
+        component: AllDoctors,
+        name     : "all-doctors"
+    },
+
+    {
+        path     : '/edit-doctor/:doctorId',
+        component: AddDoctor,
+        name     : "edit-doctor"
     },
 
 ];

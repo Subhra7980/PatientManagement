@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Auth\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,13 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
         Route::post('/delete-patients/{patId}'     , [PatientController::class, 'deletePatient']);
         Route::get('/get-patients-count'           , [PatientController::class, 'getPatientCount']);
     #USER API
+        Route::post('/save-user-data'              , [UserController::class, 'saveUser']);
+        Route::get('/view-all-user-data'           , [UserController::class, 'getUserList']);
+        Route::get('/get-user-by-id/{userId}'      , [UserController::class, 'getUserById']);
+        Route::post('/update-user-data/{userId}'   , [UserController::class, 'updateUser']);
+        Route::post('/delete-user/{userId}'        , [UserController::class, 'deleteUser']);
+        Route::get('/get-users-count'              , [UserController::class, 'getUsersCount']);
+    #DOCTOR API
         Route::post('/save-user-data'              , [UserController::class, 'saveUser']);
         Route::get('/view-all-user-data'           , [UserController::class, 'getUserList']);
         Route::get('/get-user-by-id/{userId}'      , [UserController::class, 'getUserById']);

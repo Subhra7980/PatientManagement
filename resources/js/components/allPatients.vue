@@ -11,7 +11,7 @@
                <!-- End of Topbar -->
                <div class="container-fluid">
                 <router-link to="/add-patient" class="btn btn-primary btn circle mb-2"><i class="fas fa-plus"></i>&nbsp;Add Patient</router-link>
-                <a href="/emp-export" class="btn btn-danger btn danger mb-2 ml-1"><i class="fas fa-download"></i>&nbsp;Export</a>
+                <a href="#" class="btn btn-danger btn danger mb-2 ml-1"><i class="fas fa-download"></i>&nbsp;Export</a>
                 <div class="card shadow-lg mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">All Patients</h6>

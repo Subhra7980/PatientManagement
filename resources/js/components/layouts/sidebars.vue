@@ -34,7 +34,7 @@
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
           aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>patient Details</span>
+          <span>Patient Details</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -56,7 +56,24 @@
         </div>
       </div>
   </li>
+
+  <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+          aria-expanded="true" aria-controls="collapseFour">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Doctor Details</span>
+      </a>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+              <router-link to="/all-doctors" class="collapse-item">View all Doctor</router-link>
+          </div>
+          
+      </div>
+  </li>
+
 </ul>
+
+
     <!-- End of Sidebar -->
 </template>
 
@@ -65,19 +82,19 @@
 import Chokidar   from '../../src/Chokidar.js';
 
 export default {
-data(){
-  return{
-     
-  }
-},
-methods:{
+    data(){
+        return{
+            
+        }
+    },
+    methods:{
 
-},
+    },
   created()
   {
       if(Chokidar() == 'web')
       {
-          
+          //
       }else{
           this.$router.push('/login');
       }

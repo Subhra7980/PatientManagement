@@ -11,7 +11,7 @@
                <!-- End of Topbar -->
                <div class="container-fluid">
                 <router-link to="/add-user" class="btn btn-primary btn circle mb-2"><i class="fas fa-plus"></i>&nbsp;Add User</router-link>
-                <a href="/emp-export" class="btn btn-danger btn danger mb-2 ml-1"><i class="fas fa-download"></i>&nbsp;Export</a>
+                <a href="#" class="btn btn-danger btn danger mb-2 ml-1"><i class="fas fa-download"></i>&nbsp;Export</a>
                 <div class="card shadow-lg mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">All User</h6>
@@ -36,7 +36,7 @@
                                             <td>{{usr.userGenId }}</td>
                                             <td>{{usr.name}}</td>
                                             <td>{{usr.email}}</td>
-                                            <td class="text-center">
+                                            <td class="text-center" v-if="usr.userGenId !='USR-00001'">
                                                 <router-link :to="'/edit-user/'+usr.userGenId" class="btn btn-success btn-circle"><i class="fas fa-edit"></i></router-link>
                                                 <button class="btn btn-danger btn-circle ml-1"  @click="deleteUser(usr.userGenId)"><i class="fas fa-trash"></i></button>
                                             </td>

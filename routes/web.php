@@ -27,3 +27,7 @@ Route::get('/edit-patient/{patId}'    ,[SystemController::class  ,'dashboard']);
 Route::get('/add-user'                ,[SystemController::class  ,'dashboard']);
 Route::get('/view-user'               ,[SystemController::class  ,'dashboard']);
 Route::get('/edit-user/{userId}'      ,[SystemController::class  ,'dashboard']);
+
+Route::get('/all-doctors'             ,[SystemController::class  ,'dashboard']);
+Route::get('/add-doctor'              ,[SystemController::class  ,'dashboard']);
+Route::get('/edit-doctor/{doctorId}'  ,[SystemController::class  ,'dashboard']);
