@@ -12,14 +12,12 @@
                <div class="container-fluid">
                 <router-link to="/add-user" class="btn btn-primary btn circle mb-2"><i class="fas fa-plus"></i>&nbsp;Add User</router-link>
                 <a href="#" class="btn btn-info mb-2 ml-1"><i class="fas fa-download"></i>&nbsp;Export</a>
-                <button class="btn btn-danger mb-2 ml-1" @click="deleteAll()"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                <button class="btn btn-danger mb-2 ml-1" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                 <div class="card shadow-lg mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">All User</h6>
-                        </div>
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">All User</h6>
+                    </div>
 
-                       
-                       
                         <div class="card-body">
                             <div class="mt-2 mb-2 custom-control custom-checkbox">
                                 <input class="custom-control-input" type="checkbox" @click="toggleSelect" :checked="selectAll" id="customCheck">
@@ -56,12 +54,10 @@
                                             <td> 
                                                 <div class="editable-field" v-if="editedFieldId === usr.id">
                                                     <input type="text" class="form-control form-control-sm" v-model="userForm.name" :ref="`usr${usr.id}`" v-if="editedFieldId === usr.id">
-                                                    
                                                 </div>
 
                                                 <div v-else>
                                                     <span class="editable-text">{{usr.name}}</span>
-                                                    
                                                 </div>                                                
                                             </td>
 
@@ -100,8 +96,28 @@
                </div>
            </div>
                <!-- Footer -->
-               <footers/>
+                <footers/>
                <!-- End of Footer -->
+
+               <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Delete Records</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                           Are you sure want to delete records ? 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" @click="deleteAll()" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
        </div>
     </div>
 </template>
