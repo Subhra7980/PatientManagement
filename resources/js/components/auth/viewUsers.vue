@@ -52,22 +52,22 @@
                                             <td>{{usr.userGenId }}</td>
 
                                             <td> 
-                                                <div class="editable-field" v-if="editedFieldId === usr.id">
+                                                <div v-if="editedFieldId === usr.id">
                                                     <input type="text" class="form-control form-control-sm" v-model="userForm.name" :ref="`usr${usr.id}`" v-if="editedFieldId === usr.id">
                                                 </div>
 
                                                 <div v-else>
-                                                    <span class="editable-text">{{usr.name}}</span>
+                                                    <span>{{usr.name}}</span>
                                                 </div>                                                
                                             </td>
 
                                             <td> 
-                                                <div class="editable-field" v-if="editedFieldId === usr.id">
+                                                <div v-if="editedFieldId === usr.id">
                                                     <input type="text" class="form-control form-control-sm" v-model="userForm.email" :ref="`usr${usr.id}`" v-if="editedFieldId === usr.id">
                                                 </div>
 
                                                 <div v-else>
-                                                    <span class="editable-text">{{usr.email}}</span>
+                                                    <span>{{usr.email}}</span>
                                                 </div>                                                
                                             </td>
                                             
@@ -78,7 +78,7 @@
                                             <!-- </td> -->
 
                                             <td class="text-center"> 
-                                                <div class="editable-field" v-if="editedFieldId === usr.id">
+                                                <div v-if="editedFieldId === usr.id">
                                                     <button class="btn btn-warning btn-circle ml-1" @click.prevent="saveUser(usr.userGenId)" v-if="usr.userGenId != 'USR-00001'"><i class="fas fa-check"></i></button>  
                                                 </div>
 
