@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
         Route::post('/update-user-data/{userId}'   , [UserController::class, 'updateUser']);
         Route::post('/delete-user/{userId}'        , [UserController::class, 'deleteUser']);
         Route::get('/get-users-count'              , [UserController::class, 'getUsersCount']);
+        Route::post('/delete-all'                  , [UserController::class, 'deleteAll']);
     #DOCTOR API
         Route::post('/save-user-data'              , [UserController::class, 'saveUser']);
         Route::get('/view-all-user-data'           , [UserController::class, 'getUserList']);

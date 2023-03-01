@@ -81,25 +81,48 @@ class UserController extends Controller
     public function deleteUser($userId)
     {
         DB::beginTransaction();
-    
         try
         {
             User::where('userGenId',$userId)->delete();
             DB::commit();
             return array('success' => true, 'msg'=>['User deleted']);
             
-          
         }catch(\Exception $e)
         {
             DB::rollBack();
             return array ('success' => false, 'msg'=>$e->errorInfo[2]);
         }
-
     }
 
     public function getUsersCount()
     {
         return User::count();
+    }
+
+    public function deleteAll(Request $request)
+    {
+        DB::beginTransaction();
+        try
+        {
+            foreach($request->json()->all() as $key => $value)
+            {
+                if(!empty($value['checked']))
+                {
+                    if($value['checked'] == true)
+                    {
+                        $findUser = User::whereNotIn('userGenId',['USR-00001'])
+                                        ->where('userGenId',$value['userGenId'])
+                                        ->delete();
+                    }
+                }
+            }
+            DB::commit();
+            return array('success' => true, 'msg'=>['Users Deleted']);
+        }catch(\Exception $e)
+        {
+            DB::rollBack();
+            return array ('success' => false, 'msg'=>$e->errorInfo[2]);
+        }
     }
 
 }

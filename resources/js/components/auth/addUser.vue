@@ -107,58 +107,58 @@
                 if(this.userForm.userGenId != null)
                 {
                     Api().post('/update-user-data/'+this.userForm.userGenId,this.userForm)
-                     .then((response) =>{
-                    if(response.data['success'] == true)
-                    {
-                        this.$swal({
-                            icon: 'success',
-                            title: ' '+response.data['msg'],
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 4000
-                        });
-                    } 
+                         .then((response) =>{
+                        if(response.data['success'] == true)
+                        {
+                            this.$swal({
+                                icon: 'success',
+                                title: ' '+response.data['msg'],
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 4000
+                            });
+                        } 
                     
-                    if(response.data['success'] == false)
-                    {
-                        this.$swal({
-                            icon: 'error',
-                            title: ' '+response.data['msg'],
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 4000
-                        });
-                    }    
-                });
+                        if(response.data['success'] == false)
+                        {
+                            this.$swal({
+                                icon: 'error',
+                                title: ' '+response.data['msg'],
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 4000
+                            });
+                        }    
+                      });
                 }else{
                     Api().post('/save-user-data/',this.userForm)
-                     .then((response) =>{
-                    if(response.data['success'] == true)
-                    {
-                        this.$swal({
-                            icon: 'success',
-                            title: ' '+response.data['msg'],
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 4000
-                        });
-                    } 
+                         .then((response) =>{
+                        if(response.data['success'] == true)
+                        {
+                            this.$swal({
+                                icon: 'success',
+                                title: ' '+response.data['msg'],
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 4000
+                            });
+                        } 
                     
-                    if(response.data['success'] == false)
-                    {
-                        this.$swal({
-                            icon: 'error',
-                            title: ' '+response.data['msg'],
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 4000
-                        });
-                    }    
-                });
+                        if(response.data['success'] == false)
+                        {
+                            this.$swal({
+                                icon: 'error',
+                                title: ' '+response.data['msg'],
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 4000
+                            });
+                        }    
+                   });
                 }
               
             },
