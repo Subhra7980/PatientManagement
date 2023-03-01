@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('emailOtp')->nullable();
             $table->string('mobileOtp')->nullable();
             $table->string('lastLogin')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

@@ -34,6 +34,7 @@
                                             <th>User Gen ID</th>
                                             <th>Name</th>
                                             <th>Email ID</th>
+                                            <th>Active</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -70,7 +71,12 @@
                                                     <span>{{usr.email}}</span>
                                                 </div>                                                
                                             </td>
-                                            
+                                            <td>
+                                                <label class="switch">
+                                                    <input type="checkbox" v-model="usr.toggleChecked" :checked="toggleChecked">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </td>
                                             <!-- <td class="text-center"> -->       
                                                 <!-- <router-link :to="'/edit-user/'+usr.userGenId" class="btn btn-success btn-circle" v-if="usr.userGenId !='USR-00001'"><i class="fas fa-edit"></i></router-link> -->
                                                 <!-- <button class="btn btn-danger btn-circle ml-1"  @click="deleteUser(usr.userGenId)"><i class="fas fa-trash"></i></button> -->
@@ -84,7 +90,8 @@
 
                                                 <div v-else>
                                                     <button class="btn btn-success btn-circle ml-1" v-if="usr.userGenId != 'USR-00001'" @click.prevent="toggleEdit(usr.id,usr.userGenId)"><i class="fas fa-edit"></i></button>   
-                                                </div>                                                
+                                                </div> 
+                                                
                                             </td>
                                         </tr>
                                        
@@ -141,10 +148,12 @@
            return{
             allUser  :[],
             selectAll:'',
+            toggleChecked:'',
             userForm:{
                 userGenId   :'',
                 name        :'',
-                email       :''  
+                email       :'',
+                status      :''
               },
               editedFieldId: null
            }
@@ -194,7 +203,8 @@
         {
             var select = this.selectAll;
             this.allUser.forEach(function(usr){
-                usr.checked = !select;
+                usr.checked       = !select;
+                usr.toggleChecked = !select;
             });
             this.selectAll = !select;
         },
@@ -236,6 +246,7 @@
                                 userGenId           : response.data.userGenId,
                                 name                : response.data.name,
                                 email               : response.data.email,
+                                status              : response.data.status
                             };
                         }
                     });
@@ -293,3 +304,65 @@
        }
    }
 </script>
+
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
